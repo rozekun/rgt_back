@@ -4,6 +4,8 @@ import { Logger } from 'nestjs-pino';
 import { ValidationPipe } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import * as dotenv from 'dotenv';
+dotenv.config(); // .env 로드
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -23,8 +25,9 @@ async function bootstrap() {
       res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1년 캐싱
     },
   });
+  // CORS 설정 (환경변수 기반)
   app.enableCors({
-    origin: 'http://localhost:3000', // 프론트엔드 주소 env로 변경필요
+    origin: process.env.FRONT_CORS_URL || 'http://localhost:3000',
     credentials: true,
   });
 

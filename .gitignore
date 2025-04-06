@@ -63,3 +63,5 @@ yarn.lock
 .yarn
 
 postgres
+
+dist

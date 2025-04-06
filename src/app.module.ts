@@ -6,10 +6,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BooksModule } from './books/books.module';
 import { Book } from './books/entities/book.entity';
 import { SeedModule } from './seed/seed.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     LoggerModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true, // 전역으로 사용 가능
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'postgres',
