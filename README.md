@@ -4,6 +4,14 @@ NestJS 기반의 온라인 서점 API입니다. 책 등록, 조회, 수정, 삭�
 
 > Tech Stack: NestJS, TypeORM, PostgreSQL, Docker
 
+# .env 설정 안내
+```bash
+FRONT_CORS_URL=localhost:3000
+```
+`.env` 파일에 다음 환경 변수를 추가해 주세요.
+> ⚠️ 이 값은 개발 환경 기준입니다.  
+> 배포 환경에서는 실제 서버의 퍼블릭 IP나 도메인을 입력하세요.
+
 ## 도커 컴포즈 실행
 - PostgreSQL 데이터베이스와 NestJS 애플리케이션을 도커 컴포즈로 실행합니다.
 - 실행시 localhost:3001에서 애플리케이션에 접근할 수 있습니다.
